@@ -51,7 +51,7 @@ Attribute  | Options                   | Default             | Description
 `tileSize` | *string*                  | `120px`             | Default size of a "&lt;tile&gt;&lt;/tile&gt;"
 `gutter`   | *string*                  | `4px`               | The `gutter` attribute sets the margin between each tile
 `orient`   | *string*                  | `h`                 | Orientation of the scroller to be observed (`v` for vertical, `h` for horizontal)
-`tiles`    | *array*                   | `null`              | Orientation of the scroller to be observed (`v` for vertical, `h` for horizontal)
+`tiles`    | *array*                   | `null`              | `tiles` is a property that contains all tile nodes
 
 ## Contributing
 
