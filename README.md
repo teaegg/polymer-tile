@@ -1,2 +1,57 @@
 # polymer-tile
-A tile component likes windows menu.
+
+A tile component using [Polymer](http://www.polymer-project.org/).
+
+## Demo
+
+[Check it live!](http://teaegg.github.io/polymer-tile)
+
+## Install
+
+Install the component using [Bower](http://bower.io/):
+
+```sh
+$ bower install polymer-tile --save
+```
+
+Or [download as ZIP](https://github.com/teaegg/polymer-tile/archive/master.zip).
+
+## Usage
+
+1. Import Web Components' polyfill:
+
+    ```html
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    ```
+
+2. Import Custom Element:
+
+    ```html
+    <link rel="import" href="bower_components/polymer-tile/polymer-tile.html">
+    ```
+
+3. Start using it!
+
+    ```html
+    <polymer-tile fit>
+      <tile>
+        <tile style="background: yellow;"></tile>
+        <tile style="background: red;"></tile>
+      </tile>
+      <tile style="background: orange;"></tile>
+      <tile double style="background: purple;"></tile>
+      <tile style="background: orange;"></tile>
+    </polymer-tile>
+    ```
+
+## Options
+
+Attribute  | Options                   | Default             | Description
+---        | ---                       | ---                 | ---
+`tileSize` | *string*                  | `120px`             | Default size of a "&lt;tile&gt;&lt;/tile&gt;"
+`gutter`   | *string*                  | `4px`               | The `gutter` attribute sets the margin between each tile
+`orient`   | *string*                  | `h`                 | Orientation of the scroller to be observed (`v` for vertical, `h` for horizontal)
+
+## License
+
+[MIT License](https://github.com/teaegg/polymer-tile/blob/master/LICENSE)
