@@ -70,8 +70,16 @@ A tile component likes windows menu.
          * @type string
          * @default 'h'
          */
-        orient: 'h'
+        orient: 'h',
 
+        /**
+        * `tiles` is a property that contains all tile nodes.
+        *
+        * @property tiles
+        * @type array
+        * @default null
+        */
+        tiles: []
       },
 
       observe: {
@@ -113,6 +121,7 @@ A tile component likes windows menu.
         var gutter = parseInt(this.gutter, 10);
         var doubleSize = tileSize * 2 + gutter * 2  + 'px';
 
+        this.tiles = [];
         var outer = this.$.tiles.getDistributedNodes();
         for(var i = 0; i < outer.length; i++) {
           var inner = outer[i].querySelectorAll('tile');
@@ -123,7 +132,10 @@ A tile component likes windows menu.
             for(var j = 0; j < inner.length; j++) {
               inner[j].style.width = this.tileSize;
               inner[j].style.height = this.tileSize;
+              this.tiles.push(inner[j]);
             }
+          } else {
+              this.tiles.push(outer[i]);
           }
           outer[i].style.height = outer[i].attributes['double'] ? doubleSize : this.tileSize;
           outer[i].style.margin = this.gutter;
