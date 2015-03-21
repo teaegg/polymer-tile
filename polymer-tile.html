@@ -6,13 +6,13 @@ A tile component likes windows menu.
 ##### Example
 
     <polymer-tile fit>
-      <tile>
-        <tile style="background: yellow;"></tile>
-        <tile style="background: red;"></tile>
-      </tile>
-      <tile style="background: orange;"></tile>
-      <tile double style="background: purple;"></tile>
-      <tile style="background: orange;"></tile>
+      <div tile>
+        <div tile style="background: yellow;"></div>
+        <div tile style="background: red;"></div>
+      </div>
+      <div tile style="background: orange;"></div>
+      <div tile double style="background: purple;"></div>
+      <div tile style="background: orange;"></div>
     </polymer-tile>
 
 @element polymer-tile
@@ -30,13 +30,13 @@ A tile component likes windows menu.
       }
 
       polyfill-next-selector { content: ':host tile'; }
-      ::content[select="tile"] * {
+      ::content[select="[tile]"] * {
         box-sizing: border-box;
         position: relative;
       }
     </style>
 
-    <content select="tile" id="tiles"></content>
+    <content select="[tile]" id="tiles"></content>
     <div id="placeholder"></div>
 
   </template>
@@ -45,6 +45,15 @@ A tile component likes windows menu.
     Polymer({
 
       publish: {
+        /**
+         * when autosize is false, tileSize and gutter will not work. you can controll the tile size and position by css.
+         *
+         * @attribute autosize
+         * @type bool
+         * @default true
+         */
+        autosize: true,
+
         /**
          * Default size of a "&lt;tile&gt;&lt;/tile&gt;".
          *
@@ -87,6 +96,7 @@ A tile component likes windows menu.
       },
 
       scrollHandler: function(e) {
+        e.preventDefault();
         var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
         if(this.orient == 'h')
           this.scrollLeft -= (delta*100);
@@ -117,6 +127,8 @@ A tile component likes windows menu.
         else
           this.$.placeholder.style.marginBottom = '100%';
         // caculate the size of each tile
+        if(!this.autosize)
+          return;
         var tileSize = parseInt(this.tileSize, 10);
         var gutter = parseInt(this.gutter, 10);
         var doubleSize = tileSize * 2 + gutter * 2  + 'px';
@@ -124,7 +136,7 @@ A tile component likes windows menu.
         this.tiles = [];
         var outer = this.$.tiles.getDistributedNodes();
         for(var i = 0; i < outer.length; i++) {
-          var inner = outer[i].querySelectorAll('tile');
+          var inner = outer[i].querySelectorAll('[tile]');
           if(inner.length > 0) {
             outer[i].setAttribute('layout', '');
             outer[i].setAttribute('horizontal', '');

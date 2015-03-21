@@ -34,13 +34,13 @@ Or [download as ZIP](https://github.com/teaegg/polymer-tile/archive/master.zip).
 
     ```html
     <polymer-tile fit>
-      <tile>
-        <tile style="background: yellow;"></tile>
-        <tile style="background: red;"></tile>
-      </tile>
-      <tile style="background: orange;"></tile>
-      <tile double style="background: purple;"></tile>
-      <tile style="background: orange;"></tile>
+      <div tile>
+        <div tile style="background: yellow;"></div>
+        <div tile style="background: red;"></div>
+      </div>
+      <div tile style="background: orange;"></div>
+      <div tile double style="background: purple;"></div>
+      <div tile style="background: orange;"></div>
     </polymer-tile>
     ```
 
@@ -48,6 +48,7 @@ Or [download as ZIP](https://github.com/teaegg/polymer-tile/archive/master.zip).
 
 Attribute  | Options                   | Default             | Description
 ---        | ---                       | ---                 | ---
+`autosize` | *bool*                    | `true`              | when autosize is false, tileSize and gutter will not work. you can controll the tile size and position by css
 `tileSize` | *string*                  | `120px`             | Default size of a "&lt;tile&gt;&lt;/tile&gt;"
 `gutter`   | *string*                  | `4px`               | The `gutter` attribute sets the margin between each tile
 `orient`   | *string*                  | `h`                 | Orientation of the scroller to be observed (`v` for vertical, `h` for horizontal)
