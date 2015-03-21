@@ -24,7 +24,7 @@ Or [download as ZIP](https://github.com/teaegg/polymer-tile/archive/master.zip).
     <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
     ```
 
-2. Import Custom Element:
+2. Import polymer-tile:
 
     ```html
     <link rel="import" href="bower_components/polymer-tile/polymer-tile.html">
